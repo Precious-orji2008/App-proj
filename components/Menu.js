@@ -10,7 +10,7 @@ export const Menu = ({ children }) => {
   const menuItems = [
     { label: "Dashboard", screen: "Dashboard", icon: "home" },
     { label: "Profile", screen: "Profile", icon: "user" },
-    { label: "Account settings", screen: "AccountSettings", icon: "settings" },
+    { label: "Settings", screen: "Settings", icon: "settings" },
     { label: "My Property", screen: "MyProperty", icon: "file-text" },
   ];
 
