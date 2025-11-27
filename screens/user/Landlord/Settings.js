@@ -11,7 +11,7 @@ import {
   TextInput,
   Modal,
 } from "react-native";
-import { Menu } from "../../components/Menu"; 
+import { Menu } from "../../../components/Menu"; 
 
 export const Settings = () => {
   const [activeTab, setActiveTab] = useState("security");

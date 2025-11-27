@@ -10,7 +10,7 @@ import {
   FlatList 
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { Menu } from "../../components/Menu";
+import { Menu } from "../../../components/Menu";
 
 export const Dashboard = ({}) => {
 
@@ -50,7 +50,7 @@ export const Dashboard = ({}) => {
           </TouchableOpacity>
 
           <Image
-            source={require("../../assests/Images/Image1.jpg")}
+            source={require("../../../assests/Images/Image1.jpg")}
             style={styles.avatar}
           />
         </View>

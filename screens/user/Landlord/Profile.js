@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import { Menu } from '../../components/Menu';
+import { Menu } from '../../../components/Menu';
 
 export const Profile = ({navigation}) => {
   const user = {
@@ -34,7 +34,7 @@ export const Profile = ({navigation}) => {
         {/* Profile Header */}
         <View style={styles.profileHeader}>
           <Image
-            source={require('../../assests/Images/Image1.jpg')}
+            source={require('../../../assests/Images/Image1.jpg')}
             style={styles.profileImage}
           />
           <Text style={styles.role}>{user.role}</Text>

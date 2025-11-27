@@ -1,12 +1,12 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {Login} from '../screens/authentication/Login'
-import {Dashboard} from '../screens/user/Dashboard'
-import {Profile} from '../screens/user/Profile'
-import {EditProfile} from '../screens/user/EditUser'
-import { Settings } from "../screens/user/Settings";
-import { MyProperty } from "../screens/user/My Property";
-import { PropertyDetails } from "../screens/user/PropertyDetails";
+import {Dashboard} from '../screens/user/Landlord/Dashboard'
+import {Profile} from '../screens/user/Landlord/Profile'
+import {EditProfile} from '../screens/user/Landlord/EditUser'
+import { Settings } from "../screens/user/Landlord/Settings";
+import { MyProperty } from "../screens/user/Landlord/My Property";
+import { PropertyDetails } from "../screens/user/Landlord/PropertyDetails";
 
 const Stack = createNativeStackNavigator();
 
