@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -6,23 +6,55 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-} from 'react-native';
-import { Menu } from '../../../components/Menu';
+} from "react-native";
+import { Menu } from "../../../components/Menu";
 
-export const Profile = ({navigation}) => {
-  const user = {
-    role: 'Software Developer',
-    name: 'Ahamba Ohale',
-    email: 'ah76euc5c@jxpomup.com',
-    phone: '+2349075245232',
-    landlordCode: 'E6B3E082',
-    about:
-      'Experienced software developer with a passion for creating efficient, user-friendly applications and scalable systems.',
-    address: '12 King’s Avenue, GRA Phase 2',
-    city: 'Port Harcourt',
-    state: 'Rivers',
-    rentCollection: '₦1,200,000',
+// 🔹 DUMMY USER DATA (Move to API later)
+const dummyUser = {
+  role: "Landlord",
+  name: "John Michael",
+  email: "johnmichael@propertyhub.com",
+  phone: "+2348001234567",
+  landlordCode: "A9X4Q771",
+  about:
+    "A property owner with several residential units. Focused on providing a smooth renting experience.",
+  address: "24 Elder Johnson Street, Rumuola",
+  city: "Port Harcourt",
+  state: "Rivers",
+  rentCollection: "₦850,000",
+};
+
+// 🔹 PROFILE SCREEN
+export const Profile = ({ navigation }) => {
+  const [user, setUser] = useState(null);
+
+  // Fetch User Profile (later add backend API)
+  const fetchUserProfile = async () => {
+    try {
+      // EXAMPLE for backend:
+      // const res = await fetch("https://yourapi.com/user/profile");
+      // const data = await res.json();
+      // setUser(data);
+
+      setUser(dummyUser);
+    } catch (err) {
+      console.log("Error loading user profile:", err);
+    }
   };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, []);
+
+  if (!user) {
+    return (
+      <Menu>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <Text>Loading profile...</Text>
+        </View>
+      </Menu>
+    );
+  }
 
   return (
     <Menu>
@@ -34,7 +66,7 @@ export const Profile = ({navigation}) => {
         {/* Profile Header */}
         <View style={styles.profileHeader}>
           <Image
-            source={require('../../../assests/Images/Image1.jpg')}
+            source={require("../../../assests/Images/Image1.jpg")}
             style={styles.profileImage}
           />
           <Text style={styles.role}>{user.role}</Text>
@@ -71,7 +103,7 @@ export const Profile = ({navigation}) => {
           <Text style={styles.aboutText}>{user.about}</Text>
         </View>
 
-        {/* Address Section */}
+        {/* Address */}
         <View style={styles.infoCard}>
           <Text style={styles.sectionTitle}>Address</Text>
 
@@ -99,7 +131,7 @@ export const Profile = ({navigation}) => {
         {/* Edit Button */}
         <TouchableOpacity
           style={styles.editButton}
-          onPress={() => navigation.navigate('EditProfile')} // 👈🏽 navigate to edit screen
+          onPress={() => navigation.navigate("EditProfile")}
         >
           <Text style={styles.editText}>Edit Profile</Text>
         </TouchableOpacity>
@@ -108,14 +140,15 @@ export const Profile = ({navigation}) => {
   );
 };
 
+// 🔹 STYLES
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f4fdf8',
+    backgroundColor: "#f4fdf8",
     padding: 16,
   },
   profileHeader: {
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: 20,
   },
   profileImage: {
@@ -126,59 +159,59 @@ const styles = StyleSheet.create({
   },
   role: {
     fontSize: 15,
-    fontWeight: '600',
-    color: '#333',
+    fontWeight: "600",
+    color: "#333",
   },
   infoCard: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 12,
     padding: 15,
     marginBottom: 16,
     elevation: 2,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 1 },
     shadowRadius: 2,
   },
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: "700",
     marginBottom: 10,
-    color: '#1a1a1a',
+    color: "#1a1a1a",
   },
   infoRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 6,
     borderBottomWidth: 0.5,
-    borderColor: '#eee',
+    borderColor: "#eee",
     paddingBottom: 4,
   },
   infoLabel: {
-    fontWeight: '600',
-    color: '#555',
+    fontWeight: "600",
+    color: "#555",
     width: 130,
   },
   infoValue: {
-    color: '#333',
+    color: "#333",
     flex: 1,
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
   },
   aboutText: {
-    color: '#444',
+    color: "#444",
     fontSize: 14,
     lineHeight: 20,
   },
   editButton: {
-    backgroundColor: '#ff6600',
+    backgroundColor: "#ff6600",
     borderRadius: 8,
     paddingVertical: 14,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 10,
     marginBottom: 40,
   },
   editText: {
-    color: '#fff',
-    fontWeight: '600',
+    color: "#fff",
+    fontWeight: "600",
     fontSize: 15,
   },
 });

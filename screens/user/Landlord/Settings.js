@@ -1,4 +1,3 @@
-// Settings.js
 import React, { useState } from "react";
 import {
   View,
@@ -50,12 +49,12 @@ export const Settings = () => {
   const [smsNotif, setSmsNotif] = useState("Only important");
   const [pushNotif, setPushNotif] = useState("Only important");
 
-  const [openDropdown, setOpenDropdown] = useState(null); // "email" | "sms" | "push" | null
+  const [openDropdown, setOpenDropdown] = useState(null); 
   const options = ["All notifications", "Only important", "None"];
 
-  const toggleSwitch = (key) => {
-    setNotifications((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
+  // const toggleSwitch = (key) => {
+  //   setNotifications((prev) => ({ ...prev, [key]: !prev[key] }));
+  // };
 
   const handleSelect = (type, value) => {
     if (type === "email") setEmailNotif(value);
@@ -399,7 +398,7 @@ export const Settings = () => {
           <Text style={[styles.buttonText, { color: "#555" }]}>Discard Changes</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.saveButton]}>
-          <Text style={[styles.buttonText, { color: "#fff" }]}>Save Billing Info</Text>
+          <Text style={[styles.buttonText,  ]}>Save Billing Info</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -412,6 +411,7 @@ export const Settings = () => {
   );
 };
 
+// 🔹 STYLES
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#f6faf7", paddingHorizontal: 16, paddingTop: 16 },
   header: { fontSize: 24, fontWeight: "700", color: "#0b3b2e" },

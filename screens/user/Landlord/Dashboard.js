@@ -1,38 +1,88 @@
-import React from "react";
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  ScrollView, 
-  TextInput, 
-  Image, 
-  TouchableOpacity, 
-  FlatList 
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  FlatList,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Menu } from "../../../components/Menu";
 
+// 🔹 DUMMY DATA (replace later with API)
+const dummyTransactions = [
+  {
+    id: "1",
+    date: "April 2, 2024",
+    amount: "₦275,000",
+    description: "Rent Payment - Unit 3B, Maple Heights",
+  },
+  {
+    id: "2",
+    date: "March 27, 2024",
+    amount: "₦150,000",
+    description: "Service Charge - Block D2, Harmony Villas",
+  },
+  {
+    id: "3",
+    date: "March 18, 2024",
+    amount: "₦320,000",
+    description: "Advance Rent - New Tenant, Silver Crest Apartments",
+  },
+  {
+    id: "4",
+    date: "March 10, 2024",
+    amount: "₦95,000",
+    description: "Maintenance Fee - Unit 1A, Eden Residency",
+  },
+  {
+    id: "5",
+    date: "February 28, 2024",
+    amount: "₦240,000",
+    description: "Rent Payment - Unit 4C, Coral Gate Estate",
+  },
+];
+
+// 🔹 Reusable Transaction Item
+const renderTransaction = ({ item }) => (
+  <View style={styles.txnCard}>
+    <Text style={styles.txnDate}>{item.date}</Text>
+    <Text style={styles.txnAmount}>{item.amount}</Text>
+    <Text style={styles.txnDesc}>{item.description}</Text>
+  </View>
+);
+
+// 🔹 MAIN DASHBOARD
 export const Dashboard = ({}) => {
+  const [transactions, setTransactions] = useState([]);
 
-  const transactions = [
-    { id: '1', date: 'March 28, 2024', amount: '₦250,000', description: 'Rent Payment - Flat A2, Oak Estate' },
-    { id: '2', date: 'March 20, 2024', amount: '₦180,000', description: 'Rent Payment - Flat C4, Sunrise Court' },
-    { id: '3', date: 'March 15, 2024', amount: '₦300,000', description: 'Advance Rent - New Tenant, Royal Residency' },
-    { id: '4', date: 'March 5, 2024', amount: '₦120,000', description: 'Maintenance Fee - Flat B1, City Homes' },
-    { id: '5', date: 'February 25, 2024', amount: '₦220,000', description: 'Rent Payment - Flat A5, Pearl Court' },
-  ];
+  // Fetch backend data later
+  const fetchTransactions = async () => {
+    try {
+      // 🔹 This is where your backend call will later enter
+      // const res = await fetch("https://api.yourapp.com/transactions");
+      // const data = await res.json();
+      // setTransactions(data);
 
-  const renderTransaction = ({ item }) => (
-    <View style={styles.txnCard}>
-      <Text style={styles.txnDate}>{item.date}</Text>
-      <Text style={styles.txnAmount}>{item.amount}</Text>
-      <Text style={styles.txnDesc}>{item.description}</Text>
-    </View>
-  );
+      setTransactions(dummyTransactions);
+    } catch (err) {
+      console.log("Error loading transactions:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
 
   return (
     <Menu>
-      <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 60 }}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={{ paddingBottom: 60 }}
+      >
         <Text style={styles.greeting}>Good morning!</Text>
 
         {/* Search + Notification + Profile */}
@@ -91,10 +141,11 @@ export const Dashboard = ({}) => {
           </View>
         </View>
 
-        {/* Recent Transactions Section */}
+        {/* Recent Transactions */}
         <View style={styles.txnContainer}>
           <View style={styles.txnHeader}>
             <Text style={styles.txnTitle}>Recent Transactions</Text>
+
             <TouchableOpacity style={styles.viewAllBtn}>
               <Text style={styles.viewAllText}>View All</Text>
             </TouchableOpacity>
@@ -107,12 +158,12 @@ export const Dashboard = ({}) => {
             scrollEnabled={false}
           />
         </View>
-
       </ScrollView>
     </Menu>
   );
 };
 
+// 🔹 STYLES
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -203,8 +254,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#000",
   },
-
-  // Transaction Styles
   txnContainer: {
     backgroundColor: "#E9F6EE",
     borderRadius: 12,
