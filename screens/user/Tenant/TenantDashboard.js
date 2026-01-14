@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { TenantMenu } from '../../../components/TenantMenu';
+import { Colors } from '../../../components/colors';
 
 export const TenantDashboard = ({ navigation }) => {
   const user = {
@@ -168,13 +169,17 @@ export const TenantDashboard = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f4fdf8', padding: 16 },
+  container: {
+    flex: 1,
+    backgroundColor: Colors.backgroundLight,
+    padding: 16,
+  },
 
   dashboardTitle: {
     fontSize: 26,
     fontWeight: '700',
     marginBottom: 12,
-    color: '#1a3b2d',
+    color: Colors.textDarkGreen,
   },
 
   verticalContainer: {
@@ -187,7 +192,7 @@ const styles = StyleSheet.create({
 
   cardBox: {
     width: '48%',
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
     padding: 14,
     borderRadius: 12,
     marginBottom: 12,
@@ -196,26 +201,29 @@ const styles = StyleSheet.create({
 
   cardLabel: {
     fontSize: 13,
-    color: '#333',
+    color: Colors.textDark,
     marginBottom: 6,
   },
 
   cardValue: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#e67e22',
+    color: Colors.primaryOrange, 
   },
 
   /* PROFILE CARD LEFT */
   profileCard: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
     borderRadius: 12,
     padding: 16,
     marginBottom: 20,
     elevation: 2,
   },
 
-  centerBox: { alignItems: 'center', marginVertical: 10 },
+  centerBox: {
+    alignItems: 'center',
+    marginVertical: 10,
+  },
 
   profileImage: {
     width: 120,
@@ -228,26 +236,32 @@ const styles = StyleSheet.create({
   infoLine: {
     fontSize: 14,
     marginBottom: 6,
-    color: '#333',
+    color: Colors.textDark, 
   },
 
-  label: { fontWeight: '700', color: '#1a3b2d' },
+  label: {
+    fontWeight: '700',
+    color: Colors.textDarkGreen, 
+  },
 
   btnRow: { marginTop: 20 },
 
   actionBtn: {
-    backgroundColor: '#ff6600',
+    backgroundColor: Colors.primary, 
     paddingVertical: 12,
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 10,
   },
 
-  btnText: { color: '#fff', fontWeight: '600' },
+  btnText: {
+    color: Colors.white,
+    fontWeight: '600',
+  },
 
   /* INVOICE SECTION RIGHT */
   invoiceCard: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
     borderRadius: 12,
     padding: 16,
     elevation: 2,
@@ -257,32 +271,47 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     marginBottom: 12,
+    color: Colors.textDarkGreen,
   },
 
   invoiceItem: {
     borderBottomWidth: 1,
-    borderColor: '#eee',
+    borderColor: Colors.borderLight, 
     paddingVertical: 10,
     marginBottom: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
 
-  invoiceDate: { color: '#1a3b2d', fontWeight: '700' },
-  invoiceTitle: { fontStyle: 'italic', color: '#444' },
+  invoiceDate: {
+    color: Colors.textDarkGreen,
+    fontWeight: '700',
+  },
+
+  invoiceTitle: {
+    fontStyle: 'italic',
+    color: Colors.textMedium, 
+  },
 
   invoiceRight: { alignItems: 'flex-end' },
 
-  invoiceAmount: { fontSize: 16, fontWeight: '700', color: '#e67e22' },
+  invoiceAmount: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: Colors.primaryOrange, 
+  },
 
   downloadBtn: {
     marginTop: 4,
     paddingVertical: 4,
     paddingHorizontal: 8,
     borderWidth: 1,
-    borderColor: '#999',
+    borderColor: Colors.borderDark, 
     borderRadius: 4,
   },
 
-  downloadText: { fontSize: 12 },
+  downloadText: {
+    fontSize: 12,
+    color: Colors.textDark,
+  },
 });

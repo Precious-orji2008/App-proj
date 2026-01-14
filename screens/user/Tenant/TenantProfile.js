@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { TenantMenu } from '../../../components/TenantMenu';
+import { Colors } from '../../../components/colors';
 
 export const TenantProfile = ({ navigation }) => {
   const user = {
@@ -91,7 +92,7 @@ export const TenantProfile = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f4fdf8',
+    backgroundColor: Colors.backgroundLight,
     padding: 16,
   },
   profileHeader: {
@@ -107,15 +108,15 @@ const styles = StyleSheet.create({
   role: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#333',
+    color: Colors.textDark,
   },
   infoCard: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
     borderRadius: 12,
     padding: 15,
     marginBottom: 16,
     elevation: 2,
-    shadowColor: '#000',
+    shadowColor: Colors.shadow,
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 1 },
     shadowRadius: 2,
@@ -124,27 +125,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     marginBottom: 10,
-    color: '#1a1a1a',
+    color: Colors.textDarkGreen,
   },
   infoRow: {
     flexDirection: 'row',
     marginBottom: 6,
     borderBottomWidth: 0.5,
-    borderColor: '#eee',
+    borderColor: Colors.borderLight,
     paddingBottom: 4,
   },
   infoLabel: {
     fontWeight: '600',
-    color: '#555',
+    color: Colors.textMedium,
     width: 130,
   },
   infoValue: {
-    color: '#333',
+    color: Colors.textDark,
     flex: 1,
     flexWrap: 'wrap',
   },
   editButton: {
-    backgroundColor: '#ff6600',
+    backgroundColor: Colors.primary,
     borderRadius: 8,
     paddingVertical: 14,
     alignItems: 'center',
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   editText: {
-    color: '#fff',
+    color: Colors.white,
     fontWeight: '600',
     fontSize: 15,
   },

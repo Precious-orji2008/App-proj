@@ -7,6 +7,7 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
+import { Colors } from '../../components/colors';
 
 export const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -16,10 +17,10 @@ export const Login = ({ navigation }) => {
 
   // handle image slideshow
   useEffect(() => {
-    const total = 3; // we get 3 images
+    const total = 3; 
     const interval = setInterval(() => {
       setCurrentImage(prev => (prev + 1) % total);
-    }, 4000); // change every 4s
+    }, 4000); 
     return () => clearInterval(interval);
   }, []);
 
@@ -76,7 +77,7 @@ export const Login = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Dashboard')}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('TenantDashboard')}>
         <Text
           style={styles.loginText}
         >
@@ -116,23 +117,24 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: '#e6f2ec',
+    backgroundColor: Colors.background,
   },
   title: {
     fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'green',
+    color: Colors.success,
     marginBottom: 10,
   },
   subtitle: {
     fontSize: 14,
     textAlign: 'center',
     marginBottom: 15,
+    color: Colors.textMedium,
   },
   input: {
     borderWidth: 1,
-    borderColor: 'green',
+    borderColor: Colors.success, 
     padding: 10,
     borderRadius: 5,
     marginBottom: 10,
@@ -151,30 +153,31 @@ const styles = StyleSheet.create({
     height: 16,
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: 'green',
+    borderColor: Colors.success, 
     marginRight: 6,
   },
   radioChecked: {
-    backgroundColor: 'green',
+    backgroundColor: Colors.success, 
   },
   radioText: {
     fontSize: 14,
+    color: Colors.textDark,
   },
   loginBtn: {
-    backgroundColor: 'orange',
+    backgroundColor: Colors.primary, 
     padding: 12,
     borderRadius: 5,
     alignItems: 'center',
     marginBottom: 10,
   },
   loginText: {
-    color: 'white',
+    color: Colors.white, 
     fontSize: 16,
     fontWeight: 'bold',
   },
   forgotText: {
     textAlign: 'center',
-    color: 'blue',
+    color: Colors.primaryDark,
     marginBottom: 15,
   },
   image: {
